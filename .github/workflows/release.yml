@@ -60,7 +60,8 @@ jobs:
       - name: Rename Executable
         run: |
           cd target/release
-          Move-Item matchapro-gc-desktop.exe Matchapro-GC-Desktop-Portable-Windows.exe
+          dir *.exe
+          Get-ChildItem -Filter "matchapro*.exe" | Rename-Item -NewName "Matchapro-GC-Desktop-Portable-Windows.exe"
 
       - name: Upload Artifacts to Release
         uses: softprops/action-gh-release@v1
