@@ -27,9 +27,14 @@ jobs:
 
       - name: Build macOS Artifacts
         run: |
-          # Build Bundles for both architectures
-          cargo bundle --release --target x86_64-apple-darwin --format osx --format dmg
-          cargo bundle --release --target aarch64-apple-darwin --format osx --format dmg
+          # Build Bundles for both architectures (split commands)
+          # x86_64
+          cargo bundle --release --target x86_64-apple-darwin --format osx
+          cargo bundle --release --target x86_64-apple-darwin --format dmg
+          
+          # aarch64 (only need dmg? usually app too if we want tarball, but we only release x86_64 tarball for now)
+          cargo bundle --release --target aarch64-apple-darwin --format osx
+          cargo bundle --release --target aarch64-apple-darwin --format dmg
 
           # Create Tarball for Universal/Intel App from the osx bundle folder
           cd target/x86_64-apple-darwin/release/bundle/osx
