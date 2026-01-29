@@ -1,7 +1,7 @@
 # Matchapro GC Desktop
 
 ![Version](https://img.shields.io/badge/version-1.5.0-blue)
-![Platform](https://img.shields.io/badge/platform-Windows-brightgreen)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-brightgreen)
 ![Language](https://img.shields.io/badge/built%20with-Rust-orange)
 
 > Aplikasi desktop native untuk mengakses **matchapro.web.bps.go.id** - Sensus Ekonomi 2026
@@ -14,7 +14,9 @@
 
 | File | Keterangan |
 |------|------------|
-| `Matchapro-GC-Desktop-Portable-V1.5.0.exe` | Portable executable (tanpa instalasi) |
+| `Matchapro-GC-Desktop-Portable-V1.5.0.exe` | Windows Portable (exe) |
+| `Matchapro-GC-Desktop-Portable-V1.5.0.dmg` | macOS Portable Image (Drag & Drop) |
+| `Matchapro-GC-Desktop-Portable-V1.5.0.app.tar.gz` | macOS Portable Bundle (Extract & Run) |
 
 **Download:** Lihat folder `app-release/` atau halaman [Releases](https://github.com/Jstfire/SBR-Desktop-Project/releases)
 
@@ -52,10 +54,17 @@ Aplikasi menampilkan:
 
 ## 🚀 Cara Penggunaan
 
-1. Download file `Matchapro-GC-Desktop-Portable-V1.5.0.exe` dari folder `app-release/`
+### Windows
+1. Download file `.exe` dari folder `app-release/`
 2. Jalankan file tersebut (double-click)
 3. Pastikan VPN BPS aktif jika akses dari luar jaringan kantor
 4. Login menggunakan akun SSO BPS
+
+### macOS
+1. Download file `.dmg` atau `.app.tar.gz`
+2. Jika menggunakan `.dmg`, buka dan drag ke Applications
+3. Jika menggunakan `.app`, ekstrak dan jalankan langsung
+4. **Note:** Jika muncul peringatan keamanan ("Unidentified Developer"), buka System Settings > Privacy & Security > pilih "Open Anyway"
 
 ---
 
@@ -72,11 +81,24 @@ Aplikasi menampilkan:
 git clone https://github.com/Jstfire/SBR-Desktop-Project.git
 cd SBR-Desktop-Project
 
-# Build release
+### Langkah Build
+
+#### Windows
+```bash
+cargo build --release
+```
+
+#### macOS
+```bash
+# Build binary standard
 cargo build --release
 
-# File exe ada di:
-# target/release/matchapro-gc-desktop.exe
+# Build app bundle / dmg (requires cargo-bundle)
+cargo install cargo-bundle
+cargo bundle --release
+```
+
+# File output ada di target/release/bundle/
 ```
 
 ---

@@ -307,7 +307,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build(&event_loop)?;
     let window = Arc::new(window);
 
-    let mut web_context = WebContext::new(Some(std::env::var("LOCALAPPDATA").map(|p| std::path::PathBuf::from(p).join("MatchaproGC")).unwrap_or_else(|_| std::env::temp_dir().join("MatchaproGC"))));
+    let data_dir = if cfg!(target_os = "macos") {
+        dirs::home_dir().map(|h| h.join("Library/Application Support/MatchaproGC"))
+    } else {
+        std::env::var("LOCALAPPDATA").map(|p| std::path::PathBuf::from(p).join("MatchaproGC")).ok()
+    };
+    let mut web_context = WebContext::new(data_dir.or_else(|| Some(std::env::temp_dir().join("MatchaproGC"))));
 
     // 1. Header WebView (Controls)
     let se_black_b64 = BASE64_STANDARD.encode(SE_BLACK_BYTES);

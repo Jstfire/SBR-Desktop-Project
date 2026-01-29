@@ -1,0 +1,10 @@
+File aplikasi macOS (.app dan .dmg) TIDAK BISA dibuat dari Windows secara langsung.
+
+Saya telah membuatkan script otomatis (GitHub Actions) untuk mem-build file tersebut.
+Silahkan cek halaman **Releases** di repository GitHub Anda setelah melakukan push.
+
+Link Releases: https://github.com/Jstfire/SBR-Desktop-Project/releases
+
+File yang akan tersedia:
+1. Matchapro-GC-Desktop.dmg (Portable Disk Image)
+2. Matchapro-GC-Desktop.app.tar.gz (Portable App Bundle)

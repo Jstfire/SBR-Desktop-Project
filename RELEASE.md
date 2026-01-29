@@ -16,7 +16,7 @@ Matchapro GC Desktop v1.5.0 - Rust Native Release
 ## 🎉 Matchapro GC Desktop v1.5.0
 
 ### Highlights
-🚀 **Rust Native Desktop App** - Aplikasi dibangun dengan Rust + WebView2 untuk performa optimal!
+🚀 **Multi-Platform Support** - Sekarang mendukung **Windows** dan **macOS** secara native!
 
 ### ✨ Fitur Utama
 
@@ -25,6 +25,7 @@ Matchapro GC Desktop v1.5.0 - Rust Native Release
 - 📊 **Progress Bar** - Indikator loading halaman
 - 🌐 **Status Koneksi** - Cek koneksi realtime
 - 📱 **Mobile User-Agent** - Kompatibel dengan Matchapro
+- 🍎 **macOS Support** - Tersedia file .dmg dan .app portable
 - ⚡ **Portable** - Tidak perlu instalasi
 
 ### 📦 Spesifikasi Aplikasi
@@ -37,23 +38,37 @@ Matchapro GC Desktop v1.5.0 - Rust Native Release
 | Runtime | WebView2 (built-in Windows) |
 
 ### 🔧 Persyaratan Sistem
-
+#### Windows
 - Windows 10/11 (64-bit)
-- Microsoft Edge WebView2 Runtime (biasanya sudah terinstal)
-- Koneksi Internet + VPN BPS
+- Microsoft Edge WebView2 Runtime
+
+#### macOS
+- macOS Catalina (10.15) atau lebih baru
+- Support Apple Silicon (M1/M2) & Intel
+
+- Koneksi Internet + VPN BPS (Semua Platform)
 
 ### 📥 Download
 
-| File | Keterangan |
-|------|------------|
-| `Matchapro-GC-Desktop-Portable-V1.5.0.exe` | Portable executable |
+| Platform | File | Keterangan |
+|----------|------|------------|
+| Windows | `Matchapro-GC-Desktop-Portable-V1.5.0.exe` | Portable Executable |
+| macOS | `Matchapro-GC-Desktop-Portable-V1.5.0.dmg` | macOS Portable (Drag & Drop) |
+| macOS | `Matchapro-GC-Desktop-Portable-V1.5.0.app.tar.gz` | macOS Portable (Extract & Run) |
 
 ### 🚀 Cara Penggunaan
+#### Windows
+1. Download file `.exe`
+2. Jalankan langsung
 
-1. Download file `.exe` di atas
-2. Jalankan langsung (tidak perlu install)
-3. Aktifkan VPN BPS
-4. Login dengan akun SSO BPS
+#### macOS
+1. Download `.dmg` atau `.app`
+2. Buka/Extract dan jalankan
+3. *Note: Jika diblokir, buka System Settings > Privacy > Open Anyway*
+
+#### Umum
+- Aktifkan VPN BPS
+- Login dengan akun SSO BPS
 
 ### ⚠️ Known Issues
 
