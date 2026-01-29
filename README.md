@@ -1,6 +1,6 @@
 # Matchapro GC Desktop
 
-![Version](https://img.shields.io/badge/version-1.5.5-blue)
+![Version](https://img.shields.io/badge/version-1.5.1-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-brightgreen)
 ![Language](https://img.shields.io/badge/built%20with-Rust-orange)
 
