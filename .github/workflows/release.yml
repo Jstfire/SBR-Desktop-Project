@@ -28,15 +28,31 @@ jobs:
       - name: Build macOS Artifacts
         run: |
           # Build Bundles for both architectures
-          cargo bundle --release --target x86_64-apple-darwin
-          cargo bundle --release --target aarch64-apple-darwin
+          cargo bundle --release --target x86_64-apple-darwin --format osx --format dmg
+          cargo bundle --release --target aarch64-apple-darwin --format osx --format dmg
 
-          # Create Tarball for Universal/Intel App (using x86_64 as portable baseline)
-          # Note: Combining them properly requires lipo, but for now offering separates or just x86_64 (Rosetta) is safer.
-          # Let's package the x86_64 version as it runs on both Intel and Apple Silicon (via Rosetta)
-          
+          # Create Tarball for Universal/Intel App from the osx bundle folder
           cd target/x86_64-apple-darwin/release/bundle/osx
           tar -czf Matchapro-GC-Desktop-Portable-macOS.app.tar.gz *.app
+          
+          # Move DMG to current folder for easier upload (it might be in ../dmg or same folder)
+          # Check common paths just in case
+          if [ -d "../dmg" ]; then
+            cp ../dmg/*.dmg .
+          elif [ -f "*.dmg" ]; then
+            echo "DMG found in osx folder"
+          else
+             # Try to find it recursively in bundle target
+             find ../.. -name "*.dmg" -exec cp {} . \;
+          fi
+          
+      - name: Upload Artifacts to Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            target/x86_64-apple-darwin/release/bundle/osx/*.app.tar.gz
+            target/x86_64-apple-darwin/release/bundle/osx/*.dmg
           
       - name: Upload Artifacts to Release
         uses: softprops/action-gh-release@v1
