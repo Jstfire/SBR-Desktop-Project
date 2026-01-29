@@ -36,7 +36,7 @@ jobs:
           # Let's package the x86_64 version as it runs on both Intel and Apple Silicon (via Rosetta)
           
           cd target/x86_64-apple-darwin/release/bundle/osx
-          tar -czf Matchapro-GC-Desktop-Portable-macOS.app.tar.gz Matchapro-GC-Desktop.app
+          tar -czf Matchapro-GC-Desktop-Portable-macOS.app.tar.gz *.app
           
       - name: Upload Artifacts to Release
         uses: softprops/action-gh-release@v1
