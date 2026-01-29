@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   build-macos:
     name: Build macOS
@@ -16,21 +19,23 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-apple-darwin, aarch64-apple-darwin
 
       - name: Install cargo-bundle
         run: cargo install cargo-bundle
 
       - name: Build macOS Artifacts
         run: |
-          # Build executable standard
-          cargo build --release
-          
-          # Build App Bundle & DMG
+          # Build Bundles for both architectures
           cargo bundle --release --target x86_64-apple-darwin
           cargo bundle --release --target aarch64-apple-darwin
 
-          # Create Tarball for App Bundle (Portable)
-          cd target/release/bundle/osx
+          # Create Tarball for Universal/Intel App (using x86_64 as portable baseline)
+          # Note: Combining them properly requires lipo, but for now offering separates or just x86_64 (Rosetta) is safer.
+          # Let's package the x86_64 version as it runs on both Intel and Apple Silicon (via Rosetta)
+          
+          cd target/x86_64-apple-darwin/release/bundle/osx
           tar -czf Matchapro-GC-Desktop-Portable-macOS.app.tar.gz Matchapro-GC-Desktop.app
           
       - name: Upload Artifacts to Release
@@ -38,8 +43,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            target/release/bundle/osx/*.app.tar.gz
-            target/release/bundle/osx/*.dmg
+            target/x86_64-apple-darwin/release/bundle/osx/*.app.tar.gz
+            target/x86_64-apple-darwin/release/bundle/osx/*.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
