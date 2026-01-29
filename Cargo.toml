@@ -1,6 +1,6 @@
 [package]
 name = "matchapro-gc-desktop"
-version = "1.5.4"
+version = "1.5.5"
 
 edition = "2021"
 authors = ["Jstfire - 7415 - 1500"]
@@ -32,8 +32,8 @@ panic = "abort"
 [package.metadata.bundle]
 name = "Matchapro GC Desktop"
 identifier = "com.matchapro.desktop"
-icon = ["logo-app.png"]
-version = "1.5.4"
+icon = ["logo-app.png", "logo-app.ico"]
+version = "1.5.5"
 copyright = "Copyright (c) Jstfire 2026"
 category = "Productivity"
 short_description = "Aplikasi desktop untuk Sensus Ekonomi 2026"
