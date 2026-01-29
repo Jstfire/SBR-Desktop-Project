@@ -61,10 +61,14 @@ Aplikasi menampilkan:
 4. Login menggunakan akun SSO BPS
 
 ### macOS
-1. Download file `.dmg` atau `.app.tar.gz`
-2. Jika menggunakan `.dmg`, buka dan drag ke Applications
-3. Jika menggunakan `.app`, ekstrak dan jalankan langsung
-4. **Note:** Jika muncul peringatan keamanan ("Unidentified Developer"), buka System Settings > Privacy & Security > pilih "Open Anyway"
+1. Download file `.dmg` (rekomendasi) atau `.app.tar.gz`
+2. **Cara Menjalankan:**
+   - **Metode 1 (Paling Mudah):** Klik kanan (atau Control-Click) pada aplikasi, lalu pilih **Open**. Jika muncul peringatan, klik **Open** lagi.
+   - **Metode 2 (Jika Error "App is damaged"):** Buka Terminal, ketik perintah berikut, lalu drag aplikasi ke terminal:
+     ```bash
+     xattr -cr /path/to/Matchapro\ GC\ Desktop.app
+     ```
+3. Pastikan VPN BPS aktif.
 
 ---
 

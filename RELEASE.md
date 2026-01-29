@@ -62,9 +62,10 @@ Matchapro GC Desktop v1.5.0 - Rust Native Release
 2. Jalankan langsung
 
 #### macOS
-1. Download `.dmg` atau `.app`
-2. Buka/Extract dan jalankan
-3. *Note: Jika diblokir, buka System Settings > Privacy > Open Anyway*
+1. **PENTING:** Karena aplikasi ini tidak ditandatangani Apple (Unsigned), Anda mungkin tidak bisa membukanya dengan double-click biasa.
+2. **Cara Buka:** 
+   - **Klik Kanan** (Control+Click) pada aplikasi > Pilih **Open** > Klik **Open** pada dialog peringatan.
+   - Atau gunakan perintah terminal jika aplikasi dianggap rusak: `xattr -cr /AppPath/NamaApp.app`
 
 #### Umum
 - Aktifkan VPN BPS
