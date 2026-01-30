@@ -56,11 +56,7 @@ pub async fn run(window: Arc<tao::window::Window>, event_loop: tao::event_loop::
                     <div class="nav-btn" role="forward" title="Forward"><svg viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg></div>
                     <div class="nav-btn" role="refresh" title="Refresh"><svg viewBox="0 0 24 24"><path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z" /></svg></div>
                 </div>
-                <div class="window-controls">
-                    <div class="win-btn" role="minimize"><svg viewBox="0 0 10 1"><rect width="10" height="1" /></svg></div>
-                    <div class="win-btn" role="maximize"><svg viewBox="0 0 10 10"><path d="M0,0v10h10V0H0z M9,9H1V1h8V9z" /></svg></div>
-                    <div class="win-btn" id="close-btn" role="close"><svg viewBox="0 0 10 10"><path d="M0,0l10,10M10,0L0,10" stroke="currentColor" stroke-width="1.2"/></svg></div>
-                </div>
+                <!-- Native MacOS controls used instead -->
                 <div id="app-progress-container"><div id="app-progress-bar"></div></div>
             `;
             // Append to BODY
