@@ -1,9 +1,7 @@
 use tao::{
     event::{Event, WindowEvent},
-    window::{WindowBuilder, Icon},
-    dpi::LogicalSize,
 };
-use wry::{WebViewBuilder, WebContext, WebView};
+use wry::{WebViewBuilder, WebContext};
 use std::sync::Arc;
 use std::time::Duration;
 use base64::prelude::*;
@@ -119,7 +117,7 @@ pub async fn run(window: Arc<tao::window::Window>, event_loop: tao::event_loop::
             let win = window.clone();
             let proxy_c = proxy.clone();
             move |msg| {
-                match msg.body() {
+                match msg.body().as_str() {
                     "drag" => { let _ = win.drag_window(); }
                     "minimize" => { win.set_minimized(true); }
                     "maximize" => { win.set_maximized(!win.is_maximized()); }

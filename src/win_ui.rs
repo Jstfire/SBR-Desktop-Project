@@ -1,7 +1,5 @@
 use tao::{
     event::{Event, WindowEvent},
-    window::{WindowBuilder, Icon},
-    dpi::LogicalSize,
 };
 use wry::{WebViewBuilder, WebContext, WebView};
 use std::sync::Arc;
@@ -159,7 +157,7 @@ const FOOTER_HTML: &str = r#"
 "#;
 
 pub async fn run(window: Arc<tao::window::Window>, event_loop: tao::event_loop::EventLoop<crate::UserEvent>, proxy: tao::event_loop::EventLoopProxy<crate::UserEvent>) -> Result<(), Box<dyn std::error::Error>> {
-    let mut web_context = WebContext::new(std::env::var("LOCALAPPDATA").map(|p| std::path::PathBuf::from(p).join("MatchaproGC")).or_else(|| Some(std::env::temp_dir().join("MatchaproGC"))));
+    let mut web_context = WebContext::new(std::env::var("LOCALAPPDATA").map(|p| std::path::PathBuf::from(p).join("MatchaproGC")).ok().or_else(|| Some(std::env::temp_dir().join("MatchaproGC"))));
 
     // 1. Header WebView (Controls)
     let se_black_b64 = BASE64_STANDARD.encode(SE_BLACK_BYTES);
