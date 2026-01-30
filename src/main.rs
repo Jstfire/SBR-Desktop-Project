@@ -31,14 +31,30 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let event_loop = EventLoopBuilder::<UserEvent>::with_user_event().build();
     let proxy = event_loop.create_proxy();
     
-    let window = WindowBuilder::new()
+    #[cfg(target_os = "macos")]
+    use tao::platform::macos::WindowBuilderExtMacOS;
+
+    let mut window_builder = WindowBuilder::new()
         .with_title("Matchapro GC Desktop")
         .with_maximized(true)
-        .with_decorations(false)
         .with_window_icon(load_icon())
         .with_inner_size(LogicalSize::new(1280.0, 800.0))
-        .with_min_inner_size(LogicalSize::new(900.0, 600.0))
-        .build(&event_loop)?;
+        .with_min_inner_size(LogicalSize::new(900.0, 600.0));
+
+    #[cfg(target_os = "windows")]
+    {
+        window_builder = window_builder.with_decorations(false);
+    }
+
+    #[cfg(target_os = "macos")]
+    {
+        window_builder = window_builder
+            .with_title_hidden(true)
+            .with_titlebar_transparent(true)
+            .with_fullsize_content_view(true);
+    }
+
+    let window = window_builder.build(&event_loop)?;
     let window = Arc::new(window);
 
     #[cfg(target_os = "macos")]

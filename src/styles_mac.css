@@ -37,7 +37,8 @@
 #app-header .title {
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: 80px;
+    /* Shift for native traffic lights */
     transform: translateY(-50%);
     z-index: 2;
     pointer-events: none;
@@ -62,8 +63,8 @@
 #app-header .browser-controls {
     position: absolute;
     top: 0;
-    left: 220px;
-    /* Adjust based on title length */
+    left: 280px;
+    /* Adjust based on title length + traffic lights */
     height: 100%;
     z-index: 10;
     display: flex;
