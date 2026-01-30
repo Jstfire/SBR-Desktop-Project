@@ -34,11 +34,11 @@ pub async fn run(window: Arc<tao::window::Window>, event_loop: tao::event_loop::
             document.head.appendChild(style);
 
             // 2. Body Padding (Use !important to override page styles)
-            const addPadding = () => {
+            const addPadding = () => {{
                 // Only padding body to avoid double spacing if html also has it
                 document.body.style.setProperty('padding-top', '48px', 'important');
                 document.body.style.setProperty('padding-bottom', '40px', 'important');
-            };
+            }};
             addPadding();
 
             // 3. Header HTML
