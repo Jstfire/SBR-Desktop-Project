@@ -1,22 +1,24 @@
-# Release v1.5.0
+# Release v1.5.2
 
 ## 🏷️ Tag Name
 ```
-v1.5.0
+v1.5.2
 ```
 
 ## 📌 Release Title
 ```
-Matchapro GC Desktop v1.5.0 - Rust Native Release
+Matchapro GC Desktop v1.5.2 - MacOS Fix (Stable)
 ```
 
 ## 📝 Release Notes (Copy untuk GitHub Release)
 
 ```markdown
-## 🎉 Matchapro GC Desktop v1.5.0
+## 🎉 Matchapro GC Desktop v1.5.2
 
-### Highlights
-🚀 **Multi-Platform Support** - Sekarang mendukung **Windows** dan **macOS** secara native!
+### Changes
+🍎 **MacOS Fix** - Fixed an issue where the Matchapro view was missing (blank) on MacOS.
+- **Improved Architecture**: MacOS version now uses a Single WebView architecture to resolve rendering issues.
+- **Windows Stability**: Windows version uses isolated logic, identical to v1.5.0 to ensure 100% stability.
 
 ### ✨ Fitur Utama
 
@@ -52,9 +54,9 @@ Matchapro GC Desktop v1.5.0 - Rust Native Release
 
 | Platform | File | Keterangan |
 |----------|------|------------|
-| Windows | `Matchapro-GC-Desktop-Portable-V1.5.0.exe` | Portable Executable |
-| macOS | `Matchapro-GC-Desktop-Portable-V1.5.0.dmg` | macOS Portable (Drag & Drop) |
-| macOS | `Matchapro-GC-Desktop-Portable-V1.5.0.app.tar.gz` | macOS Portable (Extract & Run) |
+| Windows | `Matchapro-GC-Desktop-Portable-V1.5.2.exe` | Portable Executable |
+| macOS | `Matchapro-GC-Desktop-Portable-V1.5.2.dmg` | macOS Portable (Drag & Drop) |
+| macOS | `Matchapro-GC-Desktop-Portable-V1.5.2.app.tar.gz` | macOS Portable (Extract & Run) |
 
 ### 🚀 Cara Penggunaan
 #### Windows
@@ -72,7 +74,6 @@ Matchapro GC Desktop v1.5.0 - Rust Native Release
 - Login dengan akun SSO BPS
 
 ### ⚠️ Known Issues
-
 - Beberapa fitur mungkin tidak berfungsi tanpa VPN BPS
 
 ---
@@ -87,29 +88,5 @@ Matchapro GC Desktop v1.5.0 - Rust Native Release
 
 Upload file berikut ke GitHub Release:
 
-1. `app-release/Matchapro-GC-Desktop-Portable-V1.5.0.exe`
-
----
-
-## 📋 Langkah Membuat Release di GitHub
-
-1. Buka repository di GitHub
-2. Klik **"Releases"** di sidebar kanan
-3. Klik **"Draft a new release"**
-4. Isi:
-   - **Tag version**: `v1.5.0`
-   - **Release title**: `Matchapro GC Desktop v1.5.0 - Rust Native Release`
-   - **Description**: Copy markdown di atas
-5. Upload file `Matchapro-GC-Desktop-Portable-V1.5.0.exe` ke bagian **"Attach binaries"**
-6. Centang **"Set as the latest release"**
-7. Klik **"Publish release"**
-
----
-
-## ✅ Checklist Sebelum Release
-
-- [ ] Build berhasil tanpa error
-- [ ] Test file .exe berjalan dengan baik
-- [ ] VPN connection test passed
-- [ ] README.md sudah updated
-- [ ] Version di Cargo.toml sudah benar (1.5.0)
+1. `app-release/Matchapro-GC-Desktop-Portable-V1.5.2.exe` (Jika ada)
+   *Note: Karena build ini dilakukan di GitHub Actions, file binary akan otomatis muncul di Assets release jika workflow sukses.*

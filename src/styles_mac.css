@@ -1,0 +1,206 @@
+/* ============================================
+   SINGLE WEBVIEW INJECTED UI STYLES (MACOS)
+   - Header (Fixed Top)
+   - Footer (Fixed Bottom)
+   ============================================ */
+
+/* --- HEADER --- */
+#app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    z-index: 2147483647;
+    /* Max z-index */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    user-select: none;
+    display: flex;
+    /* Ensure content layout */
+}
+
+#app-header .drag-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Title & Logo */
+#app-header .title {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+#app-header .title img {
+    height: 24px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#app-header .title span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Browser Nav Controls */
+#app-header .browser-controls {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    /* Adjust based on title length */
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+#app-header .nav-btn {
+    width: 32px;
+    height: 32px;
+    margin-right: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #555;
+}
+
+#app-header .nav-btn:hover {
+    background: #f0f0f0;
+    color: #000;
+}
+
+#app-header .nav-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* Window Manager Controls */
+#app-header .window-controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+}
+
+#app-header .win-btn {
+    width: 48px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #444;
+}
+
+#app-header .win-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+#app-header .win-btn#close-btn:hover {
+    background: #e81123;
+    color: white;
+}
+
+#app-header .win-btn svg {
+    width: 10px;
+    height: 10px;
+}
+
+/* Progress Bar */
+#app-progress-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    z-index: 20;
+    pointer-events: none;
+}
+
+#app-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #007bff;
+    transition: width 0.3s, opacity 0.5s;
+}
+
+/* --- FOOTER --- */
+#app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #f8f9fa;
+    border-top: 1px solid #ddd;
+    z-index: 2147483647;
+    /* Max z-index */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+#app-footer .status {
+    display: flex;
+    align-items: center;
+}
+
+#app-footer .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#app-footer .online {
+    background: #28a745;
+    box-shadow: 0 0 5px #28a745;
+}
+
+#app-footer .offline {
+    background: #dc3545;
+    box-shadow: 0 0 5px #dc3545;
+}
+
+#app-footer .credits {
+    font-weight: 500;
+}
+
+#app-footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#app-footer a:hover {
+    text-decoration: underline;
+}
