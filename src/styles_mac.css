@@ -6,20 +6,22 @@
 
 /* --- HEADER --- */
 #app-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 48px;
-    background: #ffffff;
-    border-bottom: 1px solid #eee;
-    z-index: 2147483647;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 48px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #eee !important;
+    z-index: 2147483647 !important;
     /* Max z-index */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     user-select: none;
-    display: flex;
+    display: flex !important;
     /* Ensure content layout */
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 #app-header .drag-area {
@@ -148,24 +150,26 @@
 
 /* --- FOOTER --- */
 #app-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: #f8f9fa;
-    border-top: 1px solid #ddd;
-    z-index: 2147483647;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 40px !important;
+    background: #f8f9fa !important;
+    border-top: 1px solid #ddd !important;
+    z-index: 2147483647 !important;
     /* Max z-index */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 13px;
     color: #555;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
     user-select: none;
     box-sizing: border-box;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 #app-footer .status {

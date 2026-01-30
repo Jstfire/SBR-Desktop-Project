@@ -1,24 +1,25 @@
-# Release v1.5.2
+# Release v1.5.3
 
 ## 🏷️ Tag Name
 ```
-v1.5.2
+v1.5.3
 ```
 
 ## 📌 Release Title
 ```
-Matchapro GC Desktop v1.5.2 - MacOS Fix (Stable)
+Matchapro GC Desktop v1.5.3 - MacOS UI & Window Fix
 ```
 
 ## 📝 Release Notes (Copy untuk GitHub Release)
 
 ```markdown
-## 🎉 Matchapro GC Desktop v1.5.2
+## 🎉 Matchapro GC Desktop v1.5.3
 
 ### Changes
-🍎 **MacOS Fix** - Fixed an issue where the Matchapro view was missing (blank) on MacOS.
-- **Improved Architecture**: MacOS version now uses a Single WebView architecture to resolve rendering issues.
-- **Windows Stability**: Windows version uses isolated logic, identical to v1.5.0 to ensure 100% stability.
+🍎 **MacOS UI Fixes**
+- **Overlay UI**: Fixed issue where the Header (Navigation/Controls) and Footer were not appearing on top of the Matchapro page.
+- **Window Sizing**: Fixed issue where the window was not maximizing nicely on startup.
+- **Injection Logic**: Improved robustness of the UI injection to ensure it persists and displays correctly.
 
 ### ✨ Fitur Utama
 
@@ -54,9 +55,9 @@ Matchapro GC Desktop v1.5.2 - MacOS Fix (Stable)
 
 | Platform | File | Keterangan |
 |----------|------|------------|
-| Windows | `Matchapro-GC-Desktop-Portable-V1.5.2.exe` | Portable Executable |
-| macOS | `Matchapro-GC-Desktop-Portable-V1.5.2.dmg` | macOS Portable (Drag & Drop) |
-| macOS | `Matchapro-GC-Desktop-Portable-V1.5.2.app.tar.gz` | macOS Portable (Extract & Run) |
+| Windows | `Matchapro-GC-Desktop-Portable-V1.5.3.exe` | Portable Executable |
+| macOS | `Matchapro-GC-Desktop-Portable-V1.5.3.dmg` | macOS Portable (Drag & Drop) |
+| macOS | `Matchapro-GC-Desktop-Portable-V1.5.3.app.tar.gz` | macOS Portable (Extract & Run) |
 
 ### 🚀 Cara Penggunaan
 #### Windows
@@ -88,5 +89,4 @@ Matchapro GC Desktop v1.5.2 - MacOS Fix (Stable)
 
 Upload file berikut ke GitHub Release:
 
-1. `app-release/Matchapro-GC-Desktop-Portable-V1.5.2.exe` (Jika ada)
-   *Note: Karena build ini dilakukan di GitHub Actions, file binary akan otomatis muncul di Assets release jika workflow sukses.*
+1. `app-release/Matchapro-GC-Desktop-Portable-V1.5.3.exe` (Jika ada)
