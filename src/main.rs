@@ -49,9 +49,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     #[cfg(target_os = "macos")]
     {
         window_builder = window_builder
-            .with_title_hidden(true)
+            .with_title("") // Hide title text by setting empty string, keeping traffic lights
+            .with_title_hidden(false) // Ensure titlebar is technically visible
             .with_titlebar_transparent(true)
-            .with_fullsize_content_view(true);
+            .with_fullsize_content_view(true)
+            .with_decorations(true); // Explicitly enable decorations
     }
 
     let window = window_builder.build(&event_loop)?;
