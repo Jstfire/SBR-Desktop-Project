@@ -25,49 +25,44 @@ jobs:
       - name: Install cargo-bundle
         run: cargo install cargo-bundle
 
-      - name: Build macOS Artifacts
+      - name: Build macOS and Package
         run: |
-          # Build Bundles for both architectures (split commands)
-          # x86_64
+          # --- INTEL (x86_64) ---
+          echo "Building Intel..."
           cargo bundle --release --target x86_64-apple-darwin --format osx
           
-          # aarch64
+          pushd target/x86_64-apple-darwin/release/bundle/osx
+          # Tarball
+          tar -czf Matchapro-GC-Desktop-macOS-Intel.app.tar.gz *.app
+          # DMG
+          hdiutil create -volname "MatchaproGC" -srcfolder *.app -ov -format UDZO Matchapro-GC-Desktop-macOS-Intel.dmg
+          popd
+          
+          # --- APPLE SILICON (aarch64) ---
+          echo "Building Apple Silicon..."
           cargo bundle --release --target aarch64-apple-darwin --format osx
+          
+          pushd target/aarch64-apple-darwin/release/bundle/osx
+          # Tarball
+          tar -czf Matchapro-GC-Desktop-macOS-AppleSilicon.app.tar.gz *.app
+          # DMG
+          hdiutil create -volname "MatchaproGC" -srcfolder *.app -ov -format UDZO Matchapro-GC-Desktop-macOS-AppleSilicon.dmg
+          popd
 
-          # Create Tarball for Universal/Intel App from the osx bundle folder
-          cd target/x86_64-apple-darwin/release/bundle/osx
-          tar -czf Matchapro-GC-Desktop-Portable-macOS.app.tar.gz *.app
-          
-          # Manually create DMG using hdiutil (since cargo-bundle failed)
-          # We use wildcard *.app to be safe about the name
-          hdiutil create -volname "MatchaproGC" -srcfolder *.app -ov -format UDZO Matchapro-GC-Desktop-Portable-macOS.dmg
-          
-          # Move DMG to current folder for easier upload (it might be in ../dmg or same folder)
-          # Check common paths just in case
-          if [ -d "../dmg" ]; then
-            cp ../dmg/*.dmg .
-          elif [ -f "*.dmg" ]; then
-            echo "DMG found in osx folder"
-          else
-             # Try to find it recursively in bundle target
-             find ../.. -name "*.dmg" -exec cp {} . \;
-          fi
+          # --- COLLECT ARTIFACTS ---
+          mkdir dist
+          cp target/x86_64-apple-darwin/release/bundle/osx/*.dmg dist/
+          cp target/x86_64-apple-darwin/release/bundle/osx/*.tar.gz dist/
+          cp target/aarch64-apple-darwin/release/bundle/osx/*.dmg dist/
+          cp target/aarch64-apple-darwin/release/bundle/osx/*.tar.gz dist/
           
       - name: Upload Artifacts to Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            target/x86_64-apple-darwin/release/bundle/osx/*.app.tar.gz
-            target/x86_64-apple-darwin/release/bundle/osx/*.dmg
-          
-      - name: Upload Artifacts to Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            target/x86_64-apple-darwin/release/bundle/osx/*.app.tar.gz
-            target/x86_64-apple-darwin/release/bundle/osx/*.dmg
+            dist/*.dmg
+            dist/*.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

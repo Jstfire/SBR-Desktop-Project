@@ -1,6 +1,6 @@
 [package]
 name = "matchapro-gc-desktop"
-version = "1.5.3"
+version = "1.5.4"
 
 edition = "2021"
 authors = ["Jstfire - 7415 - 1500"]
@@ -32,7 +32,7 @@ panic = "abort"
 [package.metadata.bundle]
 name = "Matchapro GC Desktop"
 identifier = "com.matchapro.desktop"
-version = "1.5.3"
+version = "1.5.4"
 icon = ["logo-app.ico"]
 copyright = "Copyright (c) Jstfire 2026"
 category = "Productivity"
